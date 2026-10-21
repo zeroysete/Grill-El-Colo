@@ -1,0 +1,54 @@
+/* Estilos personalizados para Gril El Colo */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.glow-effect {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Transición suave para filtrado exclusivo de la carta */
+.menu-item {
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+  will-change: opacity, transform;
+}
+
+/* Botón activo de filtro */
+.menu-tab-btn.active {
+  background-color: #C0392B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 6px -1px rgba(192, 57, 43, 0.3);
+}
+
+/* Suavizado de tipografías */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Personalización de scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D6D3D1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A29E;
+}

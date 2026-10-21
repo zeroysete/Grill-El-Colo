@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gril El Colo | Parrilla, Milanesas y Comida Rápida en Florida, Uruguay</title>
+  <meta name="description" content="Gril El Colo en Florida. Salón para cenar en familia y con amigos, comida al paso y delivery rápido. Especialistas en milanesas y grill. Abierto hasta las 00:30.">
+  
+  <!-- Google Fonts: Oswald & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#C0392B',
+              redHover: '#A93226',
+              dark: '#1C1917',
+              charcoal: '#292524',
+              amber: '#E67E22',
+              cream: '#FDFBF7',
+              creamCard: '#F5F2EA',
+              muted: '#78716C'
+            }
+          },
+          fontFamily: {
+            heading: ['Oswald', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-red selection:text-white pb-28 md:pb-12">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-brand-dark text-stone-300 text-xs md:text-sm py-2 px-4 border-b border-stone-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-950 text-emerald-400 border border-emerald-800" id="live-status-pill">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Abierto ahora (cierra 00:30 a.m.)
+        </span>
+        <span class="hidden sm:inline text-stone-500">|</span>
+        <span class="flex items-center gap-1 text-stone-300">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-amber"></i> Independencia 1483, Florida
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-medium">
+        <span class="text-stone-300"><span class="text-stone-400">Mar a Vie:</span> 06:30–00:30 <span class="text-stone-500">|</span> <span class="text-stone-400">Sáb y Dom:</span> 07:00–01:00 <span class="text-stone-500">|</span> <span class="text-rose-400">Lun cerrado</span></span>
+        <a href="tel:099026993" class="hover:text-white transition flex items-center gap-1 text-stone-300 font-semibold">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-amber"></i> 099 026 993
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-brand-red text-white flex items-center justify-center font-heading text-xl shadow-md group-hover:scale-105 transition-transform">
+          <i data-lucide="flame" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="font-heading text-2xl tracking-wide uppercase text-brand-dark block leading-none">Gril El Colo</span>
+          <span class="text-[11px] font-medium tracking-wider uppercase text-brand-muted">Florida</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-stone-700">
+        <a href="#modalidades" class="hover:text-brand-red transition">Cómo Funciona</a>
+        <a href="#carta" class="hover:text-brand-red transition">Especialidades & Carta</a>
+        <a href="#diferenciales" class="hover:text-brand-red transition">Diferenciales</a>
+        <a href="#testimonios" class="hover:text-brand-red transition">Opiniones (4.2★)</a>
+        <a href="#ubicacion" class="hover:text-brand-red transition">Ubicación</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-stone-700 hover:text-brand-red focus:outline-none" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 py-4 space-y-3 text-stone-800 font-semibold shadow-xl">
+      <a href="#modalidades" class="block py-2 border-b border-stone-100" onclick="closeMenu()">Cómo Funciona</a>
+      <a href="#carta" class="block py-2 border-b border-stone-100" onclick="closeMenu()">Especialidades & Carta</a>
+      <a href="#diferenciales" class="block py-2 border-b border-stone-100" onclick="closeMenu()">Por Qué Elegirnos</a>
+      <a href="#testimonios" class="block py-2 border-b border-stone-100" onclick="closeMenu()">Opiniones Reales</a>
+      <a href="#ubicacion" class="block py-2 border-b border-stone-100" onclick="closeMenu()">Ubicación y Horarios</a>
+      <div class="pt-2">
+        <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20hacer%20un%20pedido" class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-semibold py-2.5 rounded-lg">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-brand-dark text-white overflow-hidden py-14 md:py-24">
+    <div class="absolute inset-0 opacity-25 bg-[radial-gradient(#C0392B_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7 space-y-6 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 bg-stone-800/90 border border-stone-700/80 px-3.5 py-1.5 rounded-full text-xs md:text-sm">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star-half" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+            </div>
+            <span class="font-bold text-white">4.2</span>
+            <span class="text-stone-400">• 143 opiniones en Google</span>
+          </div>
+
+          <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight leading-none text-stone-100">
+            El sabor del grill y las mejores <span class="text-brand-red underline decoration-brand-amber/40">milanesas</span> de Florida
+          </h1>
+
+          <p class="text-base sm:text-lg text-stone-300 font-normal leading-relaxed max-w-xl mx-auto md:mx-0">
+            Comé en nuestro salón cómodo con amigos o la familia, pasá a levantar tu comida al paso o pedite un delivery que <strong class="text-white font-semibold">llega rápido y bien calentito</strong> a tu casa.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs sm:text-sm text-stone-300 pt-1">
+            <span class="flex items-center gap-1.5 bg-stone-900/80 border border-stone-800 px-3 py-1.5 rounded-md">
+              <i data-lucide="badge-dollar-sign" class="w-4 h-4 text-emerald-400"></i> Precios: $200 – $800 por persona
+            </span>
+            <span class="flex items-center gap-1.5 bg-stone-900/80 border border-stone-800 px-3 py-1.5 rounded-md">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-amber"></i> Mar a Vie: 06:30–00:30 | Sáb y Dom: 07:00–01:00 (Lun cerrado)
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3.5 pt-3">
+            <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20hacer%20un%20pedido%20para%20delivery%20o%20para%20retirar" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-950/40 transition transform active:scale-95">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span>Hacer Pedido por WhatsApp</span>
+            </a>
+            <a href="#carta" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-stone-800 hover:bg-stone-700 text-white font-semibold text-base px-6 py-3.5 rounded-xl border border-stone-700 transition">
+              <i data-lucide="utensils" class="w-4 h-4 text-brand-amber"></i>
+              <span>Ver Menú & Precios</span>
+            </a>
+          </div>
+
+          <p class="text-xs text-stone-400 italic">
+            * Se atienden pedidos al paso, para llevar y mesas en salón con atención personalizada.
+          </p>
+        </div>
+
+        <div class="md:col-span-5">
+          <div class="relative mx-auto max-w-sm md:max-w-none">
+            <div class="absolute -inset-1 bg-gradient-to-r from-brand-red to-brand-amber rounded-2xl blur-lg opacity-40"></div>
+            <div class="relative bg-stone-900 rounded-2xl overflow-hidden border border-stone-800 shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Parrilla y carne asada al grill" class="w-full h-64 sm:h-72 object-cover opacity-90 hover:scale-105 transition duration-500">
+              <div class="p-5 space-y-3 bg-stone-900/95">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-heading text-lg tracking-wide uppercase text-white">Gril El Colo en Acción</h3>
+                    <p class="text-xs text-stone-400">Independencia 1483 • Florida</p>
+                  </div>
+                  <span class="text-xs bg-brand-red/20 text-brand-red border border-brand-red/30 px-2 py-0.5 rounded font-semibold uppercase">Calidad y Sabor</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 pt-2 border-t border-stone-800 text-center">
+                  <div class="p-2 bg-stone-800/60 rounded">
+                    <span class="block text-brand-amber font-heading text-base">Salón</span>
+                    <span class="text-[10px] text-stone-400">Atención mesas</span>
+                  </div>
+                  <div class="p-2 bg-stone-800/60 rounded">
+                    <span class="block text-brand-amber font-heading text-base">Al Paso</span>
+                    <span class="text-[10px] text-stone-400">Para retirar</span>
+                  </div>
+                  <div class="p-2 bg-stone-800/60 rounded">
+                    <span class="block text-brand-amber font-heading text-base">Delivery</span>
+                    <span class="text-[10px] text-stone-400">Llega calentito</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalidades de Servicio -->
+  <section id="modalidades" class="py-16 bg-white border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-red">Atención completa en Florida</span>
+        <h2 class="font-heading text-3xl sm:text-4xl uppercase tracking-tight text-brand-dark mt-1">
+          Elegí cómo querés disfrutar tu comida
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base mt-2">
+          Ya sea para sentarte cómodo en nuestras mesas o para disfrutar en el sillón de tu casa, tenemos una opción pensada para vos.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div class="bg-brand-creamCard rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center mb-4">
+            <i data-lucide="store" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-2xl uppercase tracking-wide text-brand-dark mb-2">Comé en el Salón</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            Un lugar cómodo y agradable para cenar y pasar el rato con amigos y familias. Contamos con <strong class="text-stone-800 font-semibold">atención a las mesas</strong>, venta de bebidas frías y baños en excelente estado de higiene.
+          </p>
+          <ul class="text-xs text-stone-500 space-y-1.5 font-medium">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Mesas para parejas y grupos</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Ambiente familiar y distendido</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Bebidas y refrescos</li>
+          </ul>
+        </div>
+
+        <div class="bg-brand-creamCard rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-brand-amber/10 text-brand-amber flex items-center justify-center mb-4">
+            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-2xl uppercase tracking-wide text-brand-dark mb-2">Comida al Paso (Retiro)</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            Buen lugar para pedir tu comida al paso cuando salís del trabajo o volvés a casa. Hacés tu pedido por teléfono o WhatsApp y pasás a retirarlo recién hecho y sin esperas.
+          </p>
+          <ul class="text-xs text-stone-500 space-y-1.5 font-medium">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Embalaje térmico adecuado</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Retiro directo en Independencia 1483</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Calidad y precio acordes</li>
+          </ul>
+        </div>
+
+        <div class="bg-brand-creamCard rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-md transition relative overflow-hidden">
+          <div class="absolute top-3 right-3 bg-brand-red text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+            Llega Caliente
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+            <i data-lucide="bike" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-2xl uppercase tracking-wide text-brand-dark mb-2">Reparto a Domicilio</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            Servicio de delivery a domicilio en Florida. Como destacan nuestros clientes: los repartos son rápidos y los alimentos te llegan siempre calentitos a la puerta.
+          </p>
+          <ul class="text-xs text-stone-500 space-y-1.5 font-medium">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Entregas rápidas en la ciudad</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Comida caliente garantizada</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pedido fácil por WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carta / Menú -->
+  <section id="carta" class="py-16 bg-brand-cream">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-red">Nuestra Cocina</span>
+        <h2 class="font-heading text-3xl sm:text-4xl uppercase tracking-tight text-brand-dark mt-1">
+          Especialidades de la Casa
+        </h2>
+        <p class="text-stone-600 text-sm mt-1">
+          Platos abundantes, elaborados al momento con ingredientes frescos. Rango habitual: <strong class="text-stone-900">$200 a $800 por persona</strong>.
+        </p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="flex flex-wrap gap-2 mb-8" id="menu-filters">
+        <button class="menu-tab-btn active px-4 py-2 rounded-xl text-sm font-semibold transition bg-brand-red text-white shadow-sm" data-category="todos">
+          Todos los Platos
+        </button>
+        <button class="menu-tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-stone-200 text-stone-700 hover:bg-stone-300" data-category="milanesas">
+          Milanesas (Especialidad)
+        </button>
+        <button class="menu-tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-stone-200 text-stone-700 hover:bg-stone-300" data-category="grill">
+          Grill & Parrilla
+        </button>
+        <button class="menu-tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-stone-200 text-stone-700 hover:bg-stone-300" data-category="hamburguesas">
+          Hamburguesas & Fritas
+        </button>
+        <button class="menu-tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-stone-200 text-stone-700 hover:bg-stone-300" data-category="bebidas">
+          Bebidas
+        </button>
+      </div>
+
+      <!-- Grilla de Platos -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="menu-grid">
+        <div class="menu-item bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between" data-category="milanesas">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-stone-100">
+              <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Milanesa con papas fritas" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-red text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                La más elogiada
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark">Milanesa Completa</h3>
+                <span class="font-heading text-lg font-bold text-brand-red">$380 - $550</span>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed mb-3">
+                Destacada por los comensales en Google. Milanesa tierna, dorada y abundante, acompañada de papas fritas caseras o guarnición. Opción al pan o al plato.
+              </p>
+              <div class="text-[11px] text-stone-500 flex items-center gap-1 font-medium">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Porción individual generosa o para compartir
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20pedir%20la%20Milanesa%20Completa" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-stone-100 hover:bg-emerald-600 hover:text-white text-stone-700 text-xs font-semibold transition">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Pedir este plato
+            </a>
+          </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between" data-category="milanesas">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-stone-100">
+              <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80" alt="Milanesa napolitana gratinada" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-amber text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                Especial de la casa
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark">Milanesa a la Napolitana</h3>
+                <span class="font-heading text-lg font-bold text-brand-red">$450 - $650</span>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed mb-3">
+                Salsa de tomate casera, jamón cocido seleccionado y abundante mozzarella gratinada al horno. Servida con papas fritas crujientes.
+              </p>
+              <div class="text-[11px] text-stone-500 flex items-center gap-1 font-medium">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Llega calentita y bien empaquetada
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20pedir%20la%20Milanesa%20Napolitana" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-stone-100 hover:bg-emerald-600 hover:text-white text-stone-700 text-xs font-semibold transition">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Pedir este plato
+            </a>
+          </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between" data-category="grill">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-stone-100">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Cortes al grill y parrilla" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-stone-900 text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                Parrilla
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark">Cortes de Grill Completo</h3>
+                <span class="font-heading text-lg font-bold text-brand-red">$500 - $800</span>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed mb-3">
+                Carnes seleccionadas al fuego de parrilla. Sabor auténtico a las brasas para disfrutar tanto en el salón con amigos como para retirar.
+              </p>
+              <div class="text-[11px] text-stone-500 flex items-center gap-1 font-medium">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Cocción a punto y porciones generosas
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20consultar%20las%20opciones%20de%20grill%20y%20parrilla%20de%20hoy" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-stone-100 hover:bg-emerald-600 hover:text-white text-stone-700 text-xs font-semibold transition">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Consultar cortes del día
+            </a>
+          </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between" data-category="hamburguesas">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-stone-100">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Hamburguesas caseras" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-stone-800 text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                Caseras
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark">Hamburguesas Completas</h3>
+                <span class="font-heading text-lg font-bold text-brand-red">$250 - $450</span>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed mb-3">
+                Hamburguesas caseras preparadas al momento con ingredientes frescos, queso, panceta y salsas especiales.
+              </p>
+              <div class="text-[11px] text-stone-500 flex items-center gap-1 font-medium">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Opción ideal para el paso o delivery
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20pedir%20una%20hamburguesa" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-stone-100 hover:bg-emerald-600 hover:text-white text-stone-700 text-xs font-semibold transition">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Pedir hamburguesa
+            </a>
+          </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between" data-category="hamburguesas">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-stone-100">
+              <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80" alt="Papas fritas crocantes" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark">Porción de Papas Fritas</h3>
+                <span class="font-heading text-lg font-bold text-brand-red">$200 - $350</span>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed mb-3">
+                Crocantes por fuera y tiernas por dentro. Opción clásica o con agregados (cheddar, panceta u hongos según disponibilidad del día).
+              </p>
+              <div class="text-[11px] text-stone-500 flex items-center gap-1 font-medium">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Ideal para acompañar tu hamburguesa
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20pedir%20una%20porción%20de%20papas%20fritas" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-stone-100 hover:bg-emerald-600 hover:text-white text-stone-700 text-xs font-semibold transition">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Pedir papas
+            </a>
+          </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between" data-category="bebidas">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-stone-100">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Bebidas frías y refrescos" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-sky-700 text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                Siempre Frías
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark">Venta de Bebidas</h3>
+                <span class="font-heading text-lg font-bold text-brand-red">$80 - $220</span>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed mb-3">
+                Refrescos de línea, cervezas bien frías para acompañar la cena en el salón o sumar a tu pedido de delivery a casa.
+              </p>
+              <div class="text-[11px] text-stone-500 flex items-center gap-1 font-medium">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Línea completa de bebidas
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20consultar%20las%20bebidas%20disponibles" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-stone-100 hover:bg-emerald-600 hover:text-white text-stone-700 text-xs font-semibold transition">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Consultar bebidas
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner de Pedido -->
+      <div class="mt-12 bg-stone-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-stone-800">
+        <div>
+          <h3 class="font-heading text-2xl uppercase tracking-wide text-white">¿Tenés una preferencia o querés pedir algo especial?</h3>
+          <p class="text-stone-300 text-sm mt-1">Escribinos directamente al WhatsApp. Te confirmamos disponibilidad de platos y tiempo de entrega en el acto.</p>
+        </div>
+        <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20consultar%20el%20menú%20completo%20de%20hoy" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-6 py-3.5 rounded-xl flex items-center gap-2 transition">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Consultar Menú al 099 026 993</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Pedir -->
+  <section class="py-16 bg-white border-y border-stone-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-red">Fácil, rápido y directo</span>
+        <h2 class="font-heading text-3xl sm:text-4xl uppercase tracking-tight text-brand-dark mt-1">
+          ¿Cómo hacer tu pedido?
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 relative">
+        <div class="text-center p-6 bg-brand-creamCard rounded-2xl border border-stone-200 relative">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white flex items-center justify-center font-heading text-xl mx-auto mb-4 shadow">1</div>
+          <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-2">Elegí lo que te tiente</h3>
+          <p class="text-stone-600 text-xs sm:text-sm leading-relaxed">
+            Revisá nuestras opciones de milanesas, grill o hamburguesas y decidí si vas a comer en el local, retirar o pedir delivery.
+          </p>
+        </div>
+
+        <div class="text-center p-6 bg-brand-creamCard rounded-2xl border border-stone-200 relative">
+          <div class="w-12 h-12 rounded-full bg-brand-amber text-white flex items-center justify-center font-heading text-xl mx-auto mb-4 shadow">2</div>
+          <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-2">Escribinos o llamanos</h3>
+          <p class="text-stone-600 text-xs sm:text-sm leading-relaxed">
+            Mandanos un WhatsApp al <strong class="text-stone-800">099 026 993</strong> o llamanos directamente. Te tomamos el pedido sin demoras.
+          </p>
+        </div>
+
+        <div class="text-center p-6 bg-brand-creamCard rounded-2xl border border-stone-200 relative">
+          <div class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center font-heading text-xl mx-auto mb-4 shadow">3</div>
+          <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-2">Disfrutá al instante</h3>
+          <p class="text-stone-600 text-xs sm:text-sm leading-relaxed">
+            Te lo servimos en el salón, lo pasás a levantar listo para llevar, o nuestro cadete te lo entrega en tu casa bien calentito.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciales Reales -->
+  <section id="diferenciales" class="py-16 bg-brand-cream">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-red">¿Por qué elegirnos en Florida?</span>
+        <h2 class="font-heading text-3xl sm:text-4xl uppercase tracking-tight text-brand-dark mt-1">
+          Lo que destacan nuestros clientes
+        </h2>
+        <p class="text-stone-600 text-sm mt-2">
+          No lo decimos nosotros: estos son los motivos reales por los que los vecinos de Florida vuelven y nos recomiendan.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:border-brand-red/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-red-100 text-brand-red flex items-center justify-center mb-4">
+            <i data-lucide="thermometer-sun" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg uppercase tracking-wide text-brand-dark mb-1">Llega Calentito</h3>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Los repartos son rápidos y la comida mantiene la temperatura justa desde la cocina hasta tu plato.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:border-brand-red/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg uppercase tracking-wide text-brand-dark mb-1">Higiene & Limpieza</h3>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Comedor impecable y baños en óptimo estado de higiene, destacados en las reseñas de Local Guides de Google.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:border-brand-red/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+            <i data-lucide="smile" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg uppercase tracking-wide text-brand-dark mb-1">Excelente Atención</h3>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Atención cordial a las mesas para compartir un momento distendido con familiares y amigos.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:border-brand-red/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+            <i data-lucide="coins" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg uppercase tracking-wide text-brand-dark mb-1">Calidad y Precio</h3>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Porciones abundantes y sabrosas con una relación calidad-precio justa y acorde al bolsillo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="py-16 bg-white border-y border-stone-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Reseñas Verificadas</span>
+          </div>
+          <h2 class="font-heading text-3xl sm:text-4xl uppercase tracking-tight text-brand-dark">
+            Opiniones de Clientes Reales
+          </h2>
+          <p class="text-stone-600 text-sm mt-1">
+            Respaldados por una calificación histórica de <strong class="text-stone-900">4.2 estrellas sobre 143 opiniones</strong> en Google.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 bg-brand-creamCard px-4 py-3 rounded-xl border border-stone-200">
+          <div class="text-center border-r border-stone-300 pr-3">
+            <span class="font-heading text-3xl font-bold text-brand-dark">4.2</span>
+          </div>
+          <div>
+            <div class="flex text-amber-500">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
+              <i data-lucide="star-half" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
+            </div>
+            <span class="text-[11px] text-stone-500 font-medium">143 opiniones en Google Maps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-brand-cream rounded-2xl p-6 border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-brand-red text-white flex items-center justify-center font-bold text-sm">
+                  PS
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-stone-900">Patricia Souza</h4>
+                  <span class="text-[11px] text-amber-700 font-semibold bg-amber-100 px-2 py-0.5 rounded-full inline-block">Local Guide</span>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-700 italic leading-relaxed">
+              "Grill completo con atención al público y reparto a domicilio. Cuenta con atención a las mesas. Baños con bien estado de higiene. Los repartos son rápidos y los alimentos llegan calentitos. Venta de bebidas. Muy ricas las milanesas…"
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500">
+            <span>Google Reviews</span>
+            <span class="text-stone-400 font-medium">Reseña verificada</span>
+          </div>
+        </div>
+
+        <div class="bg-brand-cream rounded-2xl p-6 border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-stone-700 text-white flex items-center justify-center font-bold text-sm">
+                  IL
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-stone-900">ILi.M</h4>
+                  <span class="text-[11px] text-amber-700 font-semibold bg-amber-100 px-2 py-0.5 rounded-full inline-block">Local Guide</span>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-700 italic leading-relaxed">
+              "Es un lugar muy cómodo para cenar y pasar el rato con amigos, familias; ofrecen excelente atención. Muy recomendable."
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500">
+            <span>Google Reviews</span>
+            <span class="text-stone-400 font-medium">Reseña verificada</span>
+          </div>
+        </div>
+
+        <div class="bg-brand-cream rounded-2xl p-6 border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-brand-amber text-white flex items-center justify-center font-bold text-sm">
+                  TW
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-stone-900">Teresa Williengton</h4>
+                  <span class="text-[11px] text-amber-700 font-semibold bg-amber-100 px-2 py-0.5 rounded-full inline-block">Local Guide</span>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-700 italic leading-relaxed">
+              "Buen lugar para pedir comida al paso (siempre q esté abierto) calidad, precio, atención y limpieza acordes, también tienen servicio de delivery."
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500">
+            <span>Google Reviews</span>
+            <span class="text-stone-400 font-medium">Reseña verificada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 p-4 rounded-xl bg-stone-100 border border-stone-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-stone-600">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkle" class="w-4 h-4 text-brand-amber shrink-0"></i>
+          <span>¿Visitaste Gril El Colo recientemente? Tu opinión ayuda a otros vecinos a conocernos.</span>
+        </div>
+        <a href="https://www.facebook.com/share/18dMb5Ni7X/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-red hover:underline flex items-center gap-1">
+          Seguinos en Facebook <i data-lucide="external-link" class="w-3 h-3"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ubicación y Horarios -->
+  <section id="ubicacion" class="pt-16 pb-32 md:pb-36 bg-brand-cream relative z-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-red">Encontranos en Florida</span>
+            <h2 class="font-heading text-3xl sm:text-4xl uppercase tracking-tight text-brand-dark mt-1">
+              Ubicación & Horarios
+            </h2>
+            <p class="text-stone-600 text-sm mt-2">
+              Estamos en pleno centro de Florida, listos para recibirte en nuestro local o llevar tu pedido donde estés.
+            </p>
+          </div>
+
+          <!-- Horarios -->
+          <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-brand-amber flex items-center justify-center">
+                  <i data-lucide="clock" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-heading text-lg uppercase tracking-wide text-brand-dark">Horario de Atención</h3>
+                  <span class="text-xs text-stone-500 font-medium">Horarios oficiales confirmados</span>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300" id="schedule-card-badge">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Abierto hoy
+              </span>
+            </div>
+
+            <div class="text-xs space-y-2 border-t border-stone-100 pt-3">
+              <div class="flex justify-between items-center py-1.5 border-b border-stone-100">
+                <span class="font-medium text-stone-700">Lunes</span>
+                <span class="font-semibold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Cerrado</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-stone-100">
+                <span class="font-medium text-stone-700">Martes</span>
+                <span class="font-bold text-stone-900">06:30 a.m. – 00:30 a.m.</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-stone-100">
+                <span class="font-medium text-stone-700">Miércoles</span>
+                <span class="font-bold text-stone-900">06:30 a.m. – 00:30 a.m.</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-stone-100">
+                <span class="font-medium text-stone-700">Jueves</span>
+                <span class="font-bold text-stone-900">06:30 a.m. – 00:30 a.m.</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-stone-100">
+                <span class="font-medium text-stone-700">Viernes</span>
+                <span class="font-bold text-stone-900">06:30 a.m. – 00:30 a.m.</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-stone-100 bg-amber-50/50 px-2 rounded">
+                <span class="font-semibold text-stone-800">Sábado</span>
+                <span class="font-bold text-brand-red">07:00 a.m. – 01:00 a.m.</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 bg-amber-50/50 px-2 rounded">
+                <span class="font-semibold text-stone-800">Domingo</span>
+                <span class="font-bold text-brand-red">07:00 a.m. – 01:00 a.m.</span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-200 text-[11px] text-emerald-900 leading-relaxed">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 inline text-emerald-700 mr-1"></i>
+              <strong>Servicio extendido:</strong> Abrimos temprano para minutas y al paso, y cerramos de madrugada para atender cenas y delivery en Florida.
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="space-y-3">
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-lg bg-red-50 text-brand-red flex items-center justify-center shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block font-bold text-stone-900 text-xs uppercase tracking-wider text-stone-400">Dirección</span>
+                <p class="text-stone-700 text-xs sm:text-sm font-medium mt-0.5">Independencia 1483, 94000 Florida, Uruguay</p>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block font-bold text-xs uppercase tracking-wider text-stone-400">Teléfono / WhatsApp Directo</span>
+                <a href="tel:099026993" class="inline-block text-brand-dark hover:text-emerald-600 font-bold text-base mt-0.5 transition">
+                  099 026 993
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <i data-lucide="facebook" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block font-bold text-xs uppercase tracking-wider text-stone-400">Página Oficial</span>
+                <a href="https://www.facebook.com/share/18dMb5Ni7X/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-xs sm:text-sm font-semibold mt-0.5 inline-block">
+                  facebook.com/gril.elcolo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="lg:col-span-7">
+          <div class="bg-white p-3 rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+            <div class="relative w-full h-80 sm:h-96 rounded-xl overflow-hidden bg-stone-200">
+              <iframe 
+                title="Mapa Gril El Colo"
+                src="https://maps.google.com/maps?q=Independencia%201483,%20Florida,%20Uruguay&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <div class="p-3 text-center">
+              <a href="https://www.google.com/maps/search/?api=1&query=Independencia+1483,+Florida,+Uruguay" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-red hover:underline">
+                <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Abrir en la app de Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist Pendientes -->
+  <section class="py-8 bg-stone-100 border-t border-stone-300">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-amber-50 border border-amber-300 rounded-2xl p-5 text-xs text-amber-900">
+        <div class="flex items-center gap-2 font-bold text-sm text-amber-800 mb-2">
+          <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+          <span>Checklist de Datos Pendientes [a confirmar con el cliente]:</span>
+        </div>
+        <p class="mb-3 text-amber-800">
+          Este sitio fue confeccionado respetando estrictamente los datos existentes. Para la puesta en marcha final, el negocio debe suministrar:
+        </p>
+        <ul class="grid sm:grid-cols-2 md:grid-cols-4 gap-2 font-medium">
+          <li class="bg-white/80 p-2 rounded border border-amber-200">1. Carta completa con precios definitivos</li>
+          <li class="bg-emerald-50 text-emerald-800 p-2 rounded border border-emerald-300 flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i> 2. Horarios (¡Confirmados!)</li>
+          <li class="bg-white/80 p-2 rounded border border-amber-200">3. Logotipo oficial en alta resolución</li>
+          <li class="bg-white/80 p-2 rounded border border-amber-200">4. Fotos propias de platos y salón</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-dark text-stone-400 py-12 border-t border-stone-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-12 gap-8 mb-8 pb-8 border-b border-stone-800">
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-2 text-white">
+            <div class="w-8 h-8 rounded-lg bg-brand-red flex items-center justify-center font-heading text-lg">
+              <i data-lucide="flame" class="w-5 h-5 text-white"></i>
+            </div>
+            <span class="font-heading text-2xl tracking-wide uppercase">Gril El Colo</span>
+          </div>
+          <p class="text-xs leading-relaxed text-stone-400 max-w-sm">
+            Gastronomía tradicional en Florida, Uruguay. Parrilla, milanesas caseras, hamburguesas y atención cálida a las mesas o a tu puerta.
+          </p>
+        </div>
+
+        <div class="md:col-span-3 space-y-2 text-xs">
+          <h4 class="font-heading uppercase tracking-wider text-stone-200 text-sm">Modalidades</h4>
+          <ul class="space-y-1.5 text-stone-400">
+            <li>• Consumo en el lugar (atención a mesas)</li>
+            <li>• Para llevar (comida al paso)</li>
+            <li>• Reparto a domicilio (delivery)</li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-2 text-xs">
+          <h4 class="font-heading uppercase tracking-wider text-stone-200 text-sm">Contacto Directo</h4>
+          <p class="text-stone-300">Independencia 1483, Florida, Uruguay</p>
+          <p class="text-stone-300">WhatsApp / Teléfono: <a href="tel:099026993" class="text-brand-amber font-semibold">099 026 993</a></p>
+          <p class="text-stone-300">Facebook: <a href="https://www.facebook.com/share/18dMb5Ni7X/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">https://www.facebook.com/share/18dMb5Ni7X/?mibextid=wwXIfr</a></p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-3">
+        <p>© 2026 Gril El Colo. Todos los derechos reservados. Florida, Uruguay.</p>
+        <p class="text-[11px]">Diseño optimizado para celulares y pedidos rápidos.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón Flotante Persistente de WhatsApp -->
+  <div class="fixed bottom-20 md:bottom-8 right-4 sm:right-6 z-50 flex items-center gap-2">
+    <div class="hidden sm:flex items-center gap-2 bg-stone-900/90 text-white text-xs px-3 py-2 rounded-xl shadow-lg border border-stone-800 backdrop-blur-sm animate-bounce">
+      <span>¡Pedí acá por WhatsApp!</span>
+    </div>
+
+    <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300" aria-label="Hacer pedido por WhatsApp">
+      <i data-lucide="message-circle" class="w-6 h-6 sm:w-8 sm:h-8"></i>
+    </a>
+  </div>
+
+  <!-- Barra de Acciones Móvil Fija -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 p-2.5 flex items-center justify-between gap-2 shadow-2xl">
+    <a href="tel:099026993" class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-stone-100 active:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold transition">
+      <i data-lucide="phone" class="w-4 h-4 text-brand-dark"></i>
+      Llamar
+    </a>
+    <a href="https://wa.me/59899026993?text=Hola%20Gril%20El%20Colo!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="flex-[2] inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600 active:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow transition">
+      <i data-lucide="message-circle" class="w-4 h-4"></i>
+      Pedir por WhatsApp
+    </a>
+    <a href="#carta" class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-stone-100 active:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold transition">
+      <i data-lucide="utensils" class="w-4 h-4 text-brand-red"></i>
+      Menú
+    </a>
+  </div>
+
+  <!-- Script Principal -->
+  <script src="app.js"></script>
+</body>
+</html>
